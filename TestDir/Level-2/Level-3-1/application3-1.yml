@@ -1,0 +1,51 @@
+spring:
+    #jackson配置
+  jackson:
+    serialization:
+      INDENT_OUTPUT: true
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  datasource:
+        # 使用MySQL数据库
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://129.3.33.33:3306/hello?
+    type: com.zaxxer.hikari.HikariDataSource
+    validation-query: SELECT 1 FROM DUAL
+    username: root
+    password: 123123
+    hikari:
+      minimum-idle: 2
+      maximum-pool-size: 2
+      data-source-properties:
+        cachePrepStmts: true
+        prepStmtCacheSize: 250
+        prepStmtCacheSqlLimit: 2048
+        useServerPrepStmts: true
+  redis:
+    database: 0
+    host: 3.3.1.23
+    port: '3434'
+    timeout: 60000
+    lettuce:
+      shutdown-timeout: 60000ms
+      pool:
+        max-active: 20
+        max-wait: 20000ms
+        min-idle: 1
+        max-idle: 20
+    password: vova_is_good
+  cache:
+    type: redis
+  data:
+    elasticsearch:
+      cluster-name: elasticsearch
+      cluster-nodes: 4.13.33.3:2424
+    repositories:
+      enabled: true
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}
+  client:
+    service-url:
+      defaultZone: http://120.0.0.33:4545/eureka/
