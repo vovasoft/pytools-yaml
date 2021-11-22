@@ -8,7 +8,7 @@ spring:
   datasource:
         # 使用MySQL数据库
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://129.3.33.33:3306/hello?
+    url: jdbc:mysql://129.3.33.9897:3306/hello?
     type: com.zaxxer.hikari.HikariDataSource
     validation-query: SELECT 1 FROM DUAL
     username: root
@@ -39,7 +39,7 @@ spring:
   data:
     elasticsearch:
       cluster-name: elasticsearch
-      cluster-nodes: 4.13.33.3:2424
+      cluster-nodes: 4.13.33.3:333
     repositories:
       enabled: true
 eureka:
@@ -48,4 +48,4 @@ eureka:
     instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}
   client:
     service-url:
-      defaultZone: http://120.0.0.33:4545/eureka/
+      defaultZone: http://120.0.0.33:9292/eureka/

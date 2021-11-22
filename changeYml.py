@@ -3,10 +3,9 @@ from ruamel import yaml
 
 # 添加需要处理文件的路径
 path = "D:\Git\GitHub\pytools-yaml\TestDir"
-# path = "D:\Git\GitHub\pytools-yaml\TestDir\Level-2\Level-3-1"
 
 # 编辑MySQL相关配置
-mysql_ip="129.3.33.33"
+mysql_ip="129.3.33.9897"
 
 # 编辑Redis相关配置
 redis_host="3.3.1.23"
@@ -14,10 +13,10 @@ redis_port="3434"
 redis_password="vova_is_good"
 
 # 编辑ES相关配置
-es_ip = "4.13.33.3:2424"
+es_ip = "4.13.33.3:333"
 
 # 编辑注册中心
-eureka_ip="http://120.0.0.33:4545/eureka/"
+eureka_ip="http://120.0.0.33:9292/eureka/"
 
 
 # 是否創建新yml文件
@@ -25,24 +24,14 @@ createNewFile = 0
 
 
 
-
-
 def findYml(path):
     print("path === "+path)
     for root, dirs, files in os.walk(path):
-        for filename in files:
-            file_path = os.path.join(root, filename)  # 得到文件的绝对/相对路径
-            if file_path.endswith("yml") or file_path.endswith("yaml"):
-                print("发现yml文件 =====> 路径 = "+file_path+"\n")
-                changeYml(file_path)
-        if len(dirs) == 0:
-            return
-
-        for dir in dirs:
-            # print("dir"+dir)
-            dir_path = os.path.join(root, dir)
-            findYml(dir_path)
-
+        print("file=================")
+        for file in files:
+            file_path = os.path.join(root,file)
+            print("发现yml文件 =====> 路径 = " + file_path + "\n")
+            changeYml(file_path)
 
 
 
